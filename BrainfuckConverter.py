@@ -17,7 +17,7 @@ class langConfig:
     langName = ""
     extension = ""
     orders = []
-    
+
     def __init__(self, langName, extension, orders):
         self.langName = langName
         self.extension = extension
@@ -36,11 +36,11 @@ for var in path:
     langName = ""
     extension = ""
     orders = []
-    
-    f = open(var)
+
+    f = open(var, 'r', encoding="utf-8")
     lines = f.readlines()
     f.close()
-    
+
     for (i,line) in enumerate(lines):
         if i == 0:
             langName = line
@@ -48,18 +48,18 @@ for var in path:
             extension = line
         elif i == 2:
             orders = line.split(",")
-    
+
     langs.append(langConfig(langName, extension, orders))
-    
+
 print(langs[1].langName)
 
 """ ボタンが押されたときの挙動設定群 """
 def convert():
     print("convert")
-    
+
 def inputFile():
     print("inputFile")
-    
+
 def outputFile():
     print("outputFile")
 
@@ -70,7 +70,7 @@ inputTextBox.place(relheight = 0.6, relwidth = 0.4, relx = 0.01, rely = 0.05)
 outputTextBox.place(relheight = 0.6, relwidth = 0.4, relx = 0.6, rely = 0.05)
 
 """ コンバートボタンの生成 """
-convertButton = tk.Button(form, text = "=>", command = convert);
+convertButton = tk.Button(form, text = "=>", command = convert)
 convertButton.place(relheight = 0.1, relwidth = 0.1, relx = 0.45, rely = 0.3)
 
 """ 拡張子選択 """
